@@ -1,0 +1,43 @@
+version: 2
+metrics:
+  - name: hubspot__weekly_email_delivered_events
+    label: Weekly Email Delivered Events
+    model: "{{ var('email_event') }}"
+    description: "Weekly number of email delivered events."
+    type: count
+    sql: event_type
+    timestamp: created_timestamp
+    time_grains: [week]
+    filters:
+      - field: event_type
+        operator: "="
+        value: "'DELIVERED'"
+    dimensions: []
+
+  - name: hubspot__weekly_email_open_events
+    label: Weekly Email Open Events
+    model: "{{ var('email_event') }}"
+    description: "Weekly number of email open events."
+    type: count
+    sql: event_type
+    timestamp: created_timestamp
+    time_grains: [week]
+    filters:
+      - field: event_type
+        operator: "="
+        value: "'OPEN'"
+    dimensions: []
+
+  - name: hubspot__weekly_email_sent_events
+    label: Weekly Email Sent Events
+    model: "{{ var('email_event') }}"
+    description: "Weekly number of email sent events."
+    type: count
+    sql: event_type
+    timestamp: created_timestamp
+    time_grains: [week]
+    filters:
+      - field: event_type
+        operator: "="
+        value: "'SENT'"
+    dimensions: []

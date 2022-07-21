@@ -1,0 +1,21 @@
+config-version: 2
+
+name: "hubspot_metrics"
+version: "0.1.0"
+
+require-dbt-version: [">=1.0.0", "<2.0.0"]
+
+models:
+  hubspot_metrics:
+    +materialized: table
+
+vars:
+  hubspot_source:
+    hubspot_schema: fivetran_hubspot
+    hubspot_service_enabled: false
+    hubspot_sales_enabled: false
+
+    hubspot_marketing_enabled: true
+
+  hubspot_metrics:
+    email_event: "ref('stg_hubspot__email_event')"
