@@ -5,7 +5,7 @@ metrics:
     model: "{{ var('email_event') }}"
     description: "Weekly number of email delivered events."
     type: count
-    sql: event_type
+    sql: event_id
     timestamp: created_timestamp
     time_grains: [week]
     filters:
@@ -18,8 +18,8 @@ metrics:
     label: Weekly Email Open Events
     model: "{{ var('email_event') }}"
     description: "Weekly number of email open events."
-    type: count
-    sql: event_type
+    type: count_distinct
+    sql: sent_by_event_id
     timestamp: created_timestamp
     time_grains: [week]
     filters:
@@ -33,7 +33,7 @@ metrics:
     model: "{{ var('email_event') }}"
     description: "Weekly number of email sent events."
     type: count
-    sql: event_type
+    sql: event_id
     timestamp: created_timestamp
     time_grains: [week]
     filters:
