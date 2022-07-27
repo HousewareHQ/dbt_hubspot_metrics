@@ -41,3 +41,11 @@ metrics:
         operator: "="
         value: "'SENT'"
     dimensions: []
+
+  - name: hubspot__weekly_email_open_rate
+    label: Weekly Email Open Rate
+    description: "Weekly number of emails open events out of emails sent"
+    type: expression
+    sql: "{{metric('hubspot__weekly_email_open_events')}} * 100 / {{metric('hubspot__weekly_email_sent_events')}}"
+    time_grains: [week]
+    dimensions: []
