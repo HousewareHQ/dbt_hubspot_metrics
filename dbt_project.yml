@@ -18,4 +18,4 @@ vars:
     hubspot_marketing_enabled: true
 
   hubspot_metrics:
-    email_event: "ref('stg_hubspot__email_event')"
+    email_event: "ref('hubspot_source', 'stg_hubspot__email_event')"

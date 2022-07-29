@@ -1,4 +1,4 @@
--- depends_on: {{ var('email_event') }}
+-- depends_on: {{ ref('hubspot_source', 'stg_hubspot__email_event') }}
 
 select *
 from {{ metrics.metric(
