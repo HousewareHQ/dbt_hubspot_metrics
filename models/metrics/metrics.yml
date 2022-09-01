@@ -2,7 +2,7 @@ version: 2
 metrics:
   - name: hubspot__weekly_email_delivered_events
     label: Weekly Email Delivered Events
-    model: "{{ var('email_event') }}"
+    model: ref('hubspot__email_events')
     description: "Weekly number of email delivered events."
     type: count
     sql: event_id
@@ -16,7 +16,7 @@ metrics:
 
   - name: hubspot__weekly_email_open_events
     label: Weekly Email Open Events
-    model: "{{ var('email_event') }}"
+    model: ref('hubspot__email_events')
     description: "Weekly number of email open events."
     type: count_distinct
     sql: sent_by_event_id
@@ -30,7 +30,7 @@ metrics:
 
   - name: hubspot__weekly_email_sent_events
     label: Weekly Email Sent Events
-    model: "{{ var('email_event') }}"
+    model: ref('hubspot__email_events')
     description: "Weekly number of email sent events."
     type: count
     sql: event_id
