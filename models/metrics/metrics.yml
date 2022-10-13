@@ -4,12 +4,12 @@ metrics:
     label: Weekly Email Delivered Events
     model: ref('hubspot__email_events')
     description: "Weekly number of email delivered events."
-    type: count
-    sql: event_id
+    calculation_method: count
+    expression: event_id
     timestamp: created_timestamp
     time_grains: [week]
     filters:
-      - field: event_type
+      - field: event_calculation_method
         operator: "="
         value: "'DELIVERED'"
     dimensions: []
@@ -18,12 +18,12 @@ metrics:
     label: Weekly Email Open Events
     model: ref('hubspot__email_events')
     description: "Weekly number of email open events."
-    type: count_distinct
-    sql: sent_by_event_id
+    calculation_method: count_distinct
+    expression: sent_by_event_id
     timestamp: created_timestamp
     time_grains: [week]
     filters:
-      - field: event_type
+      - field: event_calculation_method
         operator: "="
         value: "'OPEN'"
     dimensions: []
@@ -32,12 +32,12 @@ metrics:
     label: Weekly Email Sent Events
     model: ref('hubspot__email_events')
     description: "Weekly number of email sent events."
-    type: count
-    sql: event_id
+    calculation_method: count
+    expression: event_id
     timestamp: created_timestamp
     time_grains: [week]
     filters:
-      - field: event_type
+      - field: event_calculation_method
         operator: "="
         value: "'SENT'"
     dimensions: []
