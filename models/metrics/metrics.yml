@@ -9,7 +9,7 @@ metrics:
     timestamp: created_timestamp
     time_grains: [week]
     filters:
-      - field: event_calculation_method
+      - field: event_type
         operator: "="
         value: "'DELIVERED'"
     dimensions: []
@@ -23,7 +23,7 @@ metrics:
     timestamp: created_timestamp
     time_grains: [week]
     filters:
-      - field: event_calculation_method
+      - field: event_type
         operator: "="
         value: "'OPEN'"
     dimensions: []
@@ -37,7 +37,7 @@ metrics:
     timestamp: created_timestamp
     time_grains: [week]
     filters:
-      - field: event_calculation_method
+      - field: event_type
         operator: "="
         value: "'SENT'"
     dimensions: []
